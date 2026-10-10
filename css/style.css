@@ -1,0 +1,44 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --font-main: "Inter", sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    margin: 0 20px 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 6vh;
+    font-size: 20px;
+    font-family: var(--font-main);
+}
+
+.header-controls,
+#account-div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#mode-change,
+#account-div button {
+    /* margin-left: 20px; */
+    padding: 2px 5px 2px 5px;
+    border: 1px black solid;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#mode-change:hover {
+    cursor: pointer;
+    scale: 1.05;
+}
