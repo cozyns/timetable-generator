@@ -22,17 +22,13 @@ header {
     font-family: var(--font-main);
 }
 
-.header-controls,
-#account-div {
+.header-controls {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-#mode-change,
-#account-div button {
-    /* margin-left: 20px; */
-    padding: 2px 5px 2px 5px;
+#mode-change {
     border: 1px black solid;
     border-radius: 5px;
     font-size: 16px;
