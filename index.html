@@ -16,6 +16,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -27,6 +29,77 @@
             <button id="mode-change">Dark Mode</button>
         </div>
     </header>
+
+    <main>
+        <!-- Left Column: The Course Shelf -->
+        <aside id="sidebar">
+            <div class="side-top-bar">
+                <h2>Subjects</h2>
+                <button id="add-subject">Add subject</button>
+            </div>
+
+            <div id="subject-list">
+                <p class="empty-message">Subjects you add will appear here.</p>
+            </div>
+        </aside>
+        <div class="divider"></div>
+        <!-- Right Column: The Timetable Grid Area -->
+        <section id="timetable-area">
+            <div class="timetable-top-bar">
+                <select name="timetable-mode" id="timetable-mode">
+                    <option value="week">Monday - Friday Classes</option>
+                    <option value="month">Sunday - Thursday Classes</option>
+                </select>
+                <details class="save-menu">
+                    <summary>Save TimeTable</summary>
+                    <ul>
+                        <li><button type="button" data-format="pdf">Export as PDF</button></li>
+                        <li><button type="button" data-format="excel">Export as Excel</button></li>
+                        <li><button type="button" data-format="png">Save as PNG</button></li>
+                    </ul>
+                </details>
+            </div>
+        </section>
+    </main>
+
+    <!-- Dialogs section -->
+    <dialog id="subject-dialog">
+        <h3>Add new subject</h3>
+        <form action="">
+            <label for="id">Subject ID:</label>
+            <input type="text" name="id" id="id" required>
+            <br><br>
+            <label for="name">Subject name:</label>
+            <input type="text" name="name" id="name" required>
+            <br><br>
+            <label for="duration">Duration:</label>
+            <select name="duration" id="duration">
+                <option value="1">1 hour</option>
+                <option value="2">2 hours</option>
+                <option value="3">3 hours</option>
+                <option value="4">4 hours</option>
+                <option value="5">5 hours</option>
+                <option value="6">6 hours</option>
+            </select>
+            <br><br>
+            <label for="location-type">Location type:</label>
+            <select name="location-type" id="location-type">
+                <option value="online">Online</option>
+                <option value="offline">Offline</option>
+            </select>
+            <br><br>
+            <div id="location-container" style="display: none;">
+                <label for="location">Location:</label>
+                <input type="text" name="location" id="location" placeholder="Optional e.g. Room 101">
+                <br><br>
+            </div>
+            <button type="submit">Add subject</button>
+            <button type="button">Cancel</button>
+        </form>
+    </dialog>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
 </body>
 
 </html>
