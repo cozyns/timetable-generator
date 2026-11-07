@@ -184,7 +184,108 @@ main {
 }
 
 .time-cell {
+    display: grid;
+    place-items: center;
     padding: 5px;
     font-family: var(--font-secondary);
     font-weight: bold;
+}
+
+.slot {
+    position: relative;
+    height: 70px;
+}
+
+.slot.drag-over {
+    background-color: #e0f2fe;
+    outline: 2px dashed #0284c7;
+    outline-offset: -2px;
+}
+
+.slot.drag-over::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(var(--hover-duration, 1) * 100% + (var(--hover-duration, 1) - 1) * 1px);
+    background-color: rgba(224, 242, 254, 0.7);
+    outline: 2px dashed #0284c7;
+    outline-offset: -2px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.slot.drag-over.conflict::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(var(--hover-duration, 1) * 100% + (var(--hover-duration, 1) - 1) * 1px);
+    background-color: rgba(254, 224, 224, 0.7);
+    outline: 2px dashed #c70202;
+    outline-offset: -2px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.is-dragging {
+    opacity: 0.2;
+}
+
+.placed-subject {
+    position: absolute;
+    background-color: #f3f4f6;
+    border: 1px solid #9ca3af;
+    border-radius: 5px;
+    width: 100%;
+    padding: 6px;
+    font-size: 12px;
+    box-sizing: border-box;
+    cursor: grab;
+    user-select: none;
+    overflow: hidden;
+    z-index: 5;
+}
+
+.placed-subject h4,
+.placed-subject p {
+    margin: 0 0 2px 0;
+}
+
+.placed-subject:active {
+    cursor: grabbing;
+}
+
+body.dragging-active .placed-subject {
+    pointer-events: none;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.card-actions {
+    display: flex;
+    gap: 4px;
+}
+
+.card-actions button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 11px;
+    padding: 1px 3px;
+    border-radius: 3px;
+    opacity: 0.7;
+    transition: opacity 0.15s ease, background-color 0.15s ease;
+}
+
+.card-actions button:hover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.08);
 }
