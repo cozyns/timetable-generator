@@ -130,13 +130,18 @@ main {
 
 /* Timetable area settings */
 #timetable-area {
+    display: flex;
+    flex-direction: column;
     flex: 1;
+    min-height: 0;
     padding: 10px;
-    overflow: hidden;
+    overflow-y: auto;
 }
 
 .timetable-top-bar {
     display: flex;
+    flex-shrink: 0;
+    margin-bottom: 20px;
     justify-content: flex-start;
     gap: 20px;
 }
@@ -172,7 +177,10 @@ main {
 
 #timetable-grid {
     display: grid;
-    margin-top: 20px;
+    grid-template-rows: auto repeat(11, minmax(0, 1fr));
+    flex: 1;
+    min-height: 480px;
+    /* margin-top: 20px; */
     background-color: #ccc;
     gap: 1px;
     border: 1px solid #ccc;
@@ -201,7 +209,7 @@ main {
 
 .slot {
     position: relative;
-    height: 70px;
+    min-height: 0;
 }
 
 .slot.drag-over {
@@ -258,8 +266,10 @@ main {
 }
 
 .placed-subject h4,
-.placed-subject p {
+.placed-subject p,
+.placed-subject small {
     margin: 0 0 2px 0;
+    text-overflow: ellipsis;
 }
 
 .placed-subject:active {
