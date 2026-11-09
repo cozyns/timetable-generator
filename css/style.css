@@ -56,6 +56,9 @@ main {
 #sidebar {
     width: 15vw;
     min-width: 220px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
 #sidebar h2 {
@@ -77,10 +80,15 @@ main {
 }
 
 #subject-list {
-    margin: 10px 10px 0 10px;
     display: flex;
     flex-direction: column;
+    min-height: 0;
+    margin: 10px 10px 0 10px;
+    padding-bottom: 10px;
     gap: 10px;
+    flex: 1;
+    overflow-y: auto;
+    scrollbar-width: none;
 }
 
 #subject-list p.empty-message {
@@ -124,7 +132,7 @@ main {
 #timetable-area {
     flex: 1;
     padding: 10px;
-    overflow: auto;
+    overflow: hidden;
 }
 
 .timetable-top-bar {
